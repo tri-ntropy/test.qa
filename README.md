@@ -11,7 +11,7 @@ Este repositorio contiene las dos pruebas solicitadas para QA.
 * Navegador [Google Chrome](https://www.google.com/intl/es_mx/chrome/)
 * La versión para Windows (win64) de [Chromedriver](https://storage.googleapis.com/chrome-for-testing-public/137.0.7151.119/win64/chromedriver-win64.zip)
 * El editor de texto que más te agrade
-* To-Do: Versión para Firefox y para Linux
+* TO-DO: Versión para Firefox y para Linux
 
 ## Instalación
 
