@@ -1,8 +1,8 @@
 from testingyes.testingyes import Testingyes
 
-firstname = "Jhon"
-lastname = "Doe"
-email = "miprueba@email.com"
+firstname = "Janxzya"
+lastname = "Dozya"
+email = "mipruebayxzwab@email.com"
 password = "asdfqwer1234"
 cuenta_nueva = False
 cuenta_creada = True

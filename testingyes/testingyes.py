@@ -4,8 +4,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import logging
 import os
 import time
+
+logger = logging.getLogger(__name__)
+logging.basicConfig(filename='testingeyes.log', level=logging.INFO)
 
 
 class Testingyes(webdriver.Chrome):
@@ -27,6 +31,7 @@ class Testingyes(webdriver.Chrome):
         print("=========================")
         print("Exito: Se abrió la página")
         print("=========================")
+        logger.info('Metodo: abrir_pagina. Abre pagina principal')
 
     def clic_sigin(self):
         sigin_element = self.find_element(By.ID, "_desktop_user_info")
@@ -34,8 +39,10 @@ class Testingyes(webdriver.Chrome):
         print("========================")
         print("Exito: Se abrió el sigin")
         print("========================")
+        logger.info('Metodo: clic_sigin. Abre pagina para loggearse')
 
     def crear_cuenta(self, firstname, lastname, email, password):
+        logger.info('Metodo: crear_cuenta. Iniciando creacion de cuenta')
         noaccount_element = self.find_element(By.CLASS_NAME, "no-account")
         noaccount_element.click()
 
@@ -68,19 +75,12 @@ class Testingyes(webdriver.Chrome):
             "btn.btn-primary.form-control-submit.float-xs-right")
         save_element.click()
 
-        try:
-            help_elements = list(self.find_elements(
-                By.CLASS_NAME, "help-block"))
-            if len(help_elements) > 0:
-                print("XXXXXXXXXXXXXXXXXXXXXXXX")
-                print(
-                    f"Error: {firstname}, {lastname}, y/o {email} incluyen carácteres no válidos"
-                )
-                print("XXXXXXXXXXXXXXXXXXXXXXXX")
-        except:
-            print("========================")
-            print("Exito: Se creó la cuenta")
-            print("========================")
+        print("========================")
+        print("Exito: Se creó la cuenta")
+        print("========================")
+        logger.info(
+            rf'Metodo: crear_cuenta. Exito: "{firstname}", "{lastname}", y "{email}" son validos. Cuenta creada'
+        )
 
     def loggear_cuenta(self, email, password):
         email_element = self.find_element(By.CLASS_NAME,
@@ -93,8 +93,11 @@ class Testingyes(webdriver.Chrome):
         password_element.send_keys(password + Keys.ENTER)
 
         print("=========================")
-        print("Exito: Se loggeó la cuenta")
+        print("Exito: Se loggeo la cuenta")
         print("=========================")
+        logger.info(
+            rf'Metodo: loggear_cuenta. Exito: Se loggeo la cuenta con el email "{email}", y password "{password}"'
+        )
 
     def agregar_producto_carrito(self, n):
         if n >= 100:
@@ -124,6 +127,10 @@ class Testingyes(webdriver.Chrome):
         print(f"Exito: Se agregaron los {n} productos")
         print("====================================")
 
+        logger.info(
+            rf'Metodo: agregar_producto_carrito. Exito: Se agregaron {n} productos"'
+        )
+
     def quitar_producto_carrito(self):
         product_element = self.find_element(
             By.CLASS_NAME, "remove-from-cart"
@@ -135,3 +142,7 @@ class Testingyes(webdriver.Chrome):
         print("=================================")
         print(f"Exito: Se quitaron los productos")
         print("=================================")
+
+        logger.info(
+            rf'Metodo: quitar_producto_carrito. Exito: Se quitaron los productos del carrito"'
+        )
