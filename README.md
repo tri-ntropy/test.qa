@@ -49,3 +49,9 @@ Con el entorno activado en tu editor de textos favorito, ejecuta el script **tes
 Del mismo modo, ejecuta el script **test_testingyes_cart.py** para realizar las pruebas del carrito.
 
 Ambos archivos instancian un objeto **Testingyes()** como un bot que empieza a realizar las pruebas.
+
+**TO-DO**: terminar las pruebas automáticas sobre la cantidad de producto límite, y encontrar la manera de tomar una o varias capturas de la prueba automática. 
+
+Para **[Amazon](http://www.testingyes.com/onlineshop/)**
+
+**TO-DO**: Terminar correctamente la prueba

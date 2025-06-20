@@ -33,6 +33,8 @@ categorias_reales = [(i, i.text)
                          "Acceso prioritario con Prime"]
                      ]
 
+categorias_reales = categorias_reales[: 5]
+
 datos = dict()
 
 for cat in categorias_reales:
