@@ -1,6 +1,6 @@
 from testingyes.testingyes import Testingyes
 
-n = 10
+n = -1
 
 with Testingyes() as bot:
     bot.abrir_pagina()

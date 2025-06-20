@@ -1,10 +1,10 @@
 from testingyes.testingyes import Testingyes
 
-firstname = "Janxzya"
-lastname = "Dozya"
-email = "mipruebayxzwab@email.com"
-password = "asdfqwer1234"
-cuenta_nueva = False
+firstname = "Janxzyab[]x"
+lastname = "Dozyab!!x"
+email = "mipruebayxzwab°bxy@email.com"
+password = "asdfqwer1234x"
+cuenta_nueva = True
 cuenta_creada = True
 if cuenta_nueva:
     cuenta_creada = False

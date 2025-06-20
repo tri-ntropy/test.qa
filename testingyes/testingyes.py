@@ -81,6 +81,7 @@ class Testingyes(webdriver.Chrome):
         logger.info(
             rf'Metodo: crear_cuenta. Exito: "{firstname}", "{lastname}", y "{email}" son validos. Cuenta creada'
         )
+        time.sleep(5)
 
     def loggear_cuenta(self, email, password):
         email_element = self.find_element(By.CLASS_NAME,
@@ -100,8 +101,6 @@ class Testingyes(webdriver.Chrome):
         )
 
     def agregar_producto_carrito(self, n):
-        if n >= 100:
-            n = 99
         product_element = self.find_element(
             By.XPATH, "/html/body/main/section/div/div/section/section/section/div/article[2]"
         )
