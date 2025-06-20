@@ -47,3 +47,5 @@ Para **[testingyes](http://www.testingyes.com/onlineshop/)**
 Con el entorno activado en tu editor de textos favorito, ejecuta el script **test_testingyes_login.py**. Este script contiene las pruebas automáticas en lo que se refiere a login y creación de cuenta.
 
 Del mismo modo, ejecuta el script **test_testingyes_cart.py** para realizar las pruebas del carrito.
+
+Ambos archivos instancian un objeto **Testingyes()** como un bot que empieza a realizar las pruebas.
