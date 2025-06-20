@@ -2,7 +2,10 @@ import testingyes.constants as const
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 import os
+import time
 
 
 class Testingyes(webdriver.Chrome):
@@ -92,3 +95,43 @@ class Testingyes(webdriver.Chrome):
         print("=========================")
         print("Exito: Se loggeó la cuenta")
         print("=========================")
+
+    def agregar_producto_carrito(self, n):
+        if n >= 100:
+            n = 99
+        product_element = self.find_element(
+            By.XPATH, "/html/body/main/section/div/div/section/section/section/div/article[2]"
+        )
+        product_element.click()
+
+        quantity_element = self.find_element(By.ID, "quantity_wanted")
+        quantity_element.click()
+        quantity_element.clear()
+        quantity_element.send_keys(n)
+
+        add_element = self.find_element(
+            By.CLASS_NAME, "btn.btn-primary.add-to-cart")
+        add_element.click()
+
+        WebDriverWait(self, 10).until(
+            EC.element_to_be_clickable((By.ID, "blockcart-modal")))
+
+        end_add_element = self.find_element(
+            By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div[2]/div/div/a")
+        end_add_element.click()
+
+        print("====================================")
+        print(f"Exito: Se agregaron los {n} productos")
+        print("====================================")
+
+    def quitar_producto_carrito(self):
+        product_element = self.find_element(
+            By.CLASS_NAME, "remove-from-cart"
+        )
+        product_element.click()
+
+        time.sleep(10)
+
+        print("=================================")
+        print(f"Exito: Se quitaron los productos")
+        print("=================================")
